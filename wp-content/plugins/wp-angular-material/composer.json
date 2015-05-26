@@ -1,0 +1,13 @@
+{
+    "name": "insites",
+    "description": "Insites Project for WP",
+    "keywords": [
+        "wordpress",
+        "science festivals"
+    ],
+    "require": {
+        "php": ">=5.3",
+        "solarium/solarium": "dev-master",
+        "javierdlahoz/inutils": "dev-master"
+    }
+}

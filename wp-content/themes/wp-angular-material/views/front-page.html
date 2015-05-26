@@ -1,0 +1,27 @@
+<div ng-init="getRecentPosts()"></div>
+<div layout="row" layout-wrap>
+	
+	<div layout="column">
+		<md-card ng-repeat="post in posts" layout-sm="column" layout-align="space-around"> 
+			<md-toolbar class="md-accent">
+			<div class="md-toolbar-tools">
+				<md-list-item class="md-1-line" layout-align="start center" flex="100">
+					<img ng-src="{{post.image}}" class="md-avatar" ng-show="post.image != ''">
+					<a href="{{post.permalink}}"><h2 class="md-flex">{{post.title}}</h2></a>
+				</md-list-item>
+			</div>
+			</md-toolbar> 
+			<md-card-content>
+				<p>
+					{{post.limitedContent}}
+				</p>
+			</md-card-content>
+		</md-card>
+	</div>
+	
+	<div layout="column" flex="100" layout-align="center center">
+		<div layout="row" layout-sm="column" layout-align="space-around" ng-show="isLoading">
+	      	<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+	    </div>
+	</div>
+</div>

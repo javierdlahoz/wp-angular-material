@@ -1,0 +1,30 @@
+<div class="container-fluid orangish">
+	<div class="container">
+		<div class="row">
+   			<ul class="nav nav-justified secondary-nav menu dropit">
+   				<li id="evaluation"
+   					class="col-xs dropit-trigger dropit-open"
+   					ng-class="{active: getAreasOfFocusValue() == 'Evaluation Capacity Building'}">
+   					<a href="#" ng-click="setAreasOfFocus('Evaluation Capacity Building'); searchResources();">
+   					   Evaluation Capacity Building
+   					</a>
+   				</li>
+
+   				<li id="systems" class="col-xs" ng-class="{active: areasOfFocus == 'Systems-Oriented Evaluation'}">
+   				    <a href="" ng-click="setAreasOfFocus('Systems-Oriented Evaluation'); searchResources();">
+   					   Systems - Oriented Evaluation</a>
+   				</li>
+   				<li id="sustainability" class="col-xs" ng-class="{active: areasOfFocus == 'Sustainable Communities'}">
+   				    <a href="" ng-click="setAreasOfFocus('Sustainable Communities'); searchResources();">
+   				        Sustainability
+   				    </a>
+   				</li>
+   				<li id="inclusiveness" class="col-xs" ng-class="{active: areasOfFocus == 'Inclusiveness and Equity'}">
+   				    <a href="" ng-click="setAreasOfFocus('Inclusiveness and Equity'); searchResources();">
+   				        Inclusiveness Equity
+   				    </a>
+   				</li>
+   			</ul>
+		</div>
+	</div>
+</div>
