@@ -1,25 +1,25 @@
-<div ng-init="getPostByUrl()">
-	<md-content> <md-card> <md-toolbar
-		class="md-accent">
-	<div class="md-toolbar-tools">
-		<h2 class="md-flex">{{post.title}}</h2>
-	</div>
+<section class="demo-container md-whiteframe-z1 show-source" ng-init="getPostByUrl()">
+	<md-toolbar class="md-accent">
+		<div class="md-toolbar-tools">
+			<h2 class="md-flex">{{post.title}}</h2>
+		</div>
 	</md-toolbar> 
-	<img ng-src="{{post.image}}" class="md-card-image" ng-show="post.image != ''">
-	<md-card-content>
-	<p>{{post.content}}</p>
-	</md-card-content>
-	<md-list layout-padding>
-        <md-list-item class="md-3-line">
-            <img ng-src="{{author.image}}" class="md-avatar">
-            <div class="md-list-item-text">
-	            <h3>{{author.display_name}}</h3>
-	            <h4>{{author.email}}</h4>
-            </div>
-        </md-list-item>
-    </md-list>
-	<div class="md-actions" layout="row" layout-align="end center">
-		<md-button>Share to email</md-button>
-	</div>
-	</md-card> </md-content>
-</div>
+	<md-content layout-padding>
+		<img ng-src="{{post.image}}" class="post-pic" ng-show="post.image != ''">
+		
+		<md-list>
+	        <md-list-item class="md-3-line">
+	            <img ng-src="{{author.image}}" class="md-avatar">
+	            <div class="md-list-item-text">
+		            <h3>{{author.display_name}}</h3>
+		            <h4>{{author.email}}</h4>
+	            </div>
+	        </md-list-item>
+	    </md-list>
+	    
+		<p>{{post.content}}</p>
+		<div class="md-actions" layout="row" layout-align="end center">
+			<md-button ng-click="goToEditPost(post.id)">Edit</md-button>
+		</div>
+	</md-content>
+</section>

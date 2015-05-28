@@ -15,5 +15,14 @@ angular.module('wp-angular')
 	            	return callBack(data);
 	            });
 			},
+			
+			getCurrentUser: function(callback){
+				$http({
+	                url: getUrls().getCurrentUser,
+	                method: "GET"
+	            }).success(function (data) {
+	            	return callback(data);
+	            });
+			}
 		};
 	});

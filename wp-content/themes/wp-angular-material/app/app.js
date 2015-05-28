@@ -1,13 +1,39 @@
 angular.module('wp-angular', ['ngMaterial', 'ngRoute', 'ngAnimate'])
     .config(function ($routeProvider, $mdThemingProvider, $locationProvider) {
+    	
     	$routeProvider
 	    	.when('/', {
 	            controller: 'PostController',
-	            templateUrl: '/wp-content/themes/wp-angular-material/views/front-page.html'
+	            templateUrl: window.templatePath + '/views/front-page.html'
+	        })
+	        .when('/blog/:slug',{
+	        	controller: 'PostController',
+	        	templateUrl: window.templatePath + '/views/posts/single.html'
+	        })
+	        .when('/:type/:slug',{
+	        	controller: 'PostController',
+	        	templateUrl: function(params){ 
+	        		return  window.templatePath + '/views/'+params.type+'/single.html';
+	        	}
+	        })
+	        .when('/wp-login.php', {
+	        	templateUrl: function(){
+	        		window.location = '/wp-login.php';
+	        	}
+	        })
+	        .when('/dashboard', {
+	        	templateUrl: function(){
+	        		window.location = '/dashboard';
+	        	}
+	        })
+	        .when('/wp-admin/:query', {
+	        	templateUrl: function(){
+	        		window.location = '/wp-admin/'+params.query;
+	        	}
 	        })
 	        .otherwise({
 	        	controller: 'PostController',
-	            templateUrl: '/wp-content/themes/wp-angular-material/views/posts/single.html'
+	            templateUrl: window.templatePath + '/views/posts/single.html'
 	        });
     	
     	$mdThemingProvider.theme('default');
@@ -27,6 +53,7 @@ function getUrls(){
 		
 		//for users
 		getUserInfo: "/api/user/info",
+		getCurrentUser: "/api/user/current",
 
 		//for email
 		sendContactEmail: "/api/email/send",

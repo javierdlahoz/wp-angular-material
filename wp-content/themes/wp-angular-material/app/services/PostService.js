@@ -1,6 +1,6 @@
 angular.module('wp-angular')
 	.factory('PostService', function($http) {
-
+		
 		return{
 			getPosts: function(formData, callBack){
 				$http({
@@ -24,6 +24,8 @@ angular.module('wp-angular')
 				var formData = {
 						url: window.location.pathname
 				};
+				PostHelper.getPostInfoFromUrl();
+				
 				$http({
 	                url: getUrls().postByUrl,
 	                method: "POST",

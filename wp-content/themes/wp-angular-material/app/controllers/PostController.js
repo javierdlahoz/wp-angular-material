@@ -47,7 +47,7 @@ angular.module('wp-angular')
     	 */
     	$scope.getQueryValue = function(){
     		if($scope.query == "" || $scope.query == undefined){
-    			$scope.query = jQuery("#query").val();;
+    			$scope.query = jQuery("#query").val();
     		}
 
     		return $scope.query;
@@ -58,5 +58,9 @@ angular.module('wp-angular')
     			$scope.author = data.user;
     		});
     	};
+    	
+    	$scope.goToEditPost = function(postId){
+    		console.log(PostHelper.getEditPostUrl(postId));
+    	}
     }
 );

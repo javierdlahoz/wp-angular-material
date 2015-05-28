@@ -1,4 +1,22 @@
 <md-toolbar layout="row" class="md-whiteframe-glow-z2 md-default-theme">
 	<h1 class="md-toolbar-tools" layout-align-gt-sm="left">
 	<a href="/">WP Angular Material</a></h1>
+	
+    <div class="md-toolbar-tools" layout="row" layout-align="end center">
+        <a class="md-button ng-scope md-default-theme" style="text-align: 'right'"
+        	href="/wp-login.php" ng-show="currentUser == null">
+	        Login
+        </a>
+        
+        <span ng-hide="currentUser == null">
+		    <a href="/dashboard">
+			    <md-list-item>
+			    	<img alt="{{ currentUser.display_name }}" ng-src="{{ currentUser.image }}" class="md-avatar" />
+			    	{{ currentUser.display_name }}
+				</md-list-item>	
+		    </a>
+        </span>
+        
+   	</div>
+    
 </md-toolbar>
