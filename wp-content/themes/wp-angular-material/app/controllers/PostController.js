@@ -1,5 +1,5 @@
 angular.module('wp-angular')
-    .controller('PostController', function ($scope, $http, $rootScope, PostService, UserService) {
+    .controller('PostController', function ($scope, $sce, $rootScope, PostService, UserService) {
     	$scope.paged = 1;
 
     	$scope.searchPosts = function(){
@@ -30,6 +30,7 @@ angular.module('wp-angular')
     	$scope.getPostByUrl = function(){
     		PostService.getPostByUrl(function(data){
     			$scope.post = data.post;
+    			$scope.post.content = $sce.trustAsHtml($scope.post.content);
     			$scope.getAuthorInfoFromUsername($scope.post.author);
     		});
     	};
@@ -61,6 +62,16 @@ angular.module('wp-angular')
     	
     	$scope.goToEditPost = function(postId){
     		console.log(PostHelper.getEditPostUrl(postId));
-    	}
+    	};
+    	
+    	$scope.getPages = function(){
+    		var formData = {
+            	type: "page"
+            };
+
+    		PostService.getPosts(formData, function(data){
+            	$scope.pages = data.posts;
+    		});
+    	};
     }
 );

@@ -1,0 +1,25 @@
+<section class="demo-container md-whiteframe-z1 show-source" ng-init="getPostByUrl()">
+	<md-toolbar class="md-accent">
+		<div class="md-toolbar-tools">
+			<h2 class="md-flex">{{post.title}}</h2>
+		</div>
+	</md-toolbar> 
+	<md-content layout-padding>
+		<img ng-src="{{post.image}}" class="post-pic" ng-show="post.image != ''">
+		
+		<md-list>
+	        <md-list-item class="md-3-line">
+	            <img ng-src="{{author.image}}" class="md-avatar">
+	            <div class="md-list-item-text">
+		            <h3>{{author.display_name}}</h3>
+		            <h4>{{author.email}}</h4>
+	            </div>
+	        </md-list-item>
+	    </md-list>
+	    
+		<p ng-bind-html="post.content"></p>
+		<div class="md-actions" layout="row" layout-align="end center">
+			<md-button ng-click="goToEditPost(post.id)">Edit</md-button>
+		</div>
+	</md-content>
+</section>

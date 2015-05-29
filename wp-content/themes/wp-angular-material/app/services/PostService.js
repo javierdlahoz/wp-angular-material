@@ -21,10 +21,7 @@ angular.module('wp-angular')
 	            });
 			},
 			getPostByUrl: function(callBack){
-				var formData = {
-						url: window.location.pathname
-				};
-				PostHelper.getPostInfoFromUrl();
+				var formData = PostHelper.getPostInfoFromUrl();
 				
 				$http({
 	                url: getUrls().postByUrl,

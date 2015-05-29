@@ -8,7 +8,7 @@ angular.module('wp-angular', ['ngMaterial', 'ngRoute', 'ngAnimate'])
 	        })
 	        .when('/blog/:slug',{
 	        	controller: 'PostController',
-	        	templateUrl: window.templatePath + '/views/posts/single.html'
+	        	templateUrl: window.templatePath + '/views/post/single.html'
 	        })
 	        .when('/:type/:slug',{
 	        	controller: 'PostController',
@@ -33,7 +33,14 @@ angular.module('wp-angular', ['ngMaterial', 'ngRoute', 'ngAnimate'])
 	        })
 	        .otherwise({
 	        	controller: 'PostController',
-	            templateUrl: window.templatePath + '/views/posts/single.html'
+	            templateUrl: function(){
+	            	if(window.postType !== undefined && window.postType == "page" && window.postType != null){
+	            		return window.templatePath + '/views/page/single.html'
+	            	}
+	            	else{
+	            		return window.templatePath + '/views/post/single.html'
+	            	}
+	            }
 	        });
     	
     	$mdThemingProvider.theme('default');

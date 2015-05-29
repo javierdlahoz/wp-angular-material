@@ -10,11 +10,16 @@
 	<header-directive></header-directive>
 	<section layout="row" flex>
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2"
-			md-component-id="left" md-is-locked-open="$mdMedia('gt-md')"> <md-content
-			layout-padding>
-		<p hide-md show-gt-md>This is me Javier De la Hoz. Email:
-			javierdlahoz@gmail.com</p>
-		</md-content> </md-sidenav>
+			md-component-id="left" md-is-locked-open="$mdMedia('gt-md')"> 
+			<md-content layout-padding>
+		        <md-list-item>
+                    <p>Page 1</p>
+                </md-list-item>
+                <md-list-item>
+                    <p>Page 2</p>
+                </md-list-item>
+		    </md-content> 
+		</md-sidenav>
 		<md-content flex layout-padding>
 		<div layout="column" layout-fill layout-align="top center" class="doc-demo-content doc-content">
 			<div ng-view></div>
